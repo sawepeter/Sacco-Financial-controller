@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javafx_sacco;
 
 import java.net.URL;
@@ -11,17 +6,21 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 
+import backend.*;
 /**
  *
  * @author Kenya
  */
 public class FXML_LoginController implements Initializable {
     
+  
     @FXML
-    private Label label;
-    
+    private JFXTextField email;
     @FXML
+    private JFXPasswordField password;
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
@@ -31,5 +30,9 @@ public class FXML_LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void handleLoginAction(ActionEvent event) {
+    }
     
 }
