@@ -16,14 +16,20 @@ import backend.*;
  */
 public class FXML_LoginController implements Initializable {
     
-  
+    employee x = new employee();
+    
     @FXML
     private JFXTextField email;
     @FXML
     private JFXPasswordField password;
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+    
+    @FXML
+    private void handleLoginAction(ActionEvent event) {
+        String xemail = email.getText();
+        String xpassword = password.getText();
+        System.out.println(xemail);
+        System.out.println(xpassword);
+        x.login("\""+xemail+"\"", xpassword); 
     }
     
     @Override
@@ -31,8 +37,4 @@ public class FXML_LoginController implements Initializable {
         // TODO
     }    
 
-    @FXML
-    private void handleLoginAction(ActionEvent event) {
-    }
-    
 }
