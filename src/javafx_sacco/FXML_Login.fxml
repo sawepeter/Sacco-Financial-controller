@@ -11,22 +11,22 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx_sacco.FXML_LoginController">
    <children>
-      <ImageView fitHeight="444.0" fitWidth="772.0" layoutX="-67.0" layoutY="-5.0" opacity="0.61" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="444.0" fitWidth="772.0" layoutX="-67.0" layoutY="-5.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Pictures/Camera%20Roll/apple-mac-os-1080P-wallpaper-middle-size.jpg" />
+            <Image url="@../images/apple-mac-os-1080P-wallpaper-middle-size.jpg" />
          </image>
       </ImageView>
-      <JFXTextField alignment="CENTER" layoutX="164.0" layoutY="123.0" prefHeight="43.0" prefWidth="308.0" promptText="Email Address" style="-fx-text-inner-color: white;">
+      <JFXTextField fx:id="email" alignment="CENTER" layoutX="164.0" layoutY="133.0" prefHeight="43.0" prefWidth="308.0" promptText="Email Address" style="-fx-text-inner-color: white;">
          <font>
             <Font size="17.0" />
          </font>
       </JFXTextField>
-      <JFXPasswordField alignment="CENTER" layoutX="165.0" layoutY="199.0" prefHeight="43.0" prefWidth="308.0" promptText="Enter Password" style="-fx-text-inner-color: white;">
+      <JFXPasswordField fx:id="password" alignment="CENTER" layoutX="165.0" layoutY="209.0" prefHeight="43.0" prefWidth="308.0" promptText="Enter Password" style="-fx-text-inner-color: white;">
          <font>
             <Font size="17.0" />
          </font>
       </JFXPasswordField>
-      <JFXButton buttonType="RAISED" layoutX="263.0" layoutY="290.0" prefHeight="43.0" prefWidth="111.0" style="-fx-background-color: blue;" text="Login" textFill="#fffefe">
+      <JFXButton fx:id="login" buttonType="RAISED" layoutX="263.0" layoutY="300.0" onAction="#handleLoginAction" prefHeight="43.0" prefWidth="111.0" style="-fx-background-color: blue;" text="Login" textFill="#fffefe">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
