@@ -57,9 +57,20 @@ public class Account {
     }
     
     //deposit
-    protected void deposit(){
-        
-    }
+    protected void deposit(String id,double _depo){
+		this.national_id = id;
+		this.deposit = _depo;
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sacco","root", "bonoko1289");
+			Statement smt = conn.createStatement();
+			String query ="UPDATE balance"+_depo+" FROM customer where national_id="+id;
+			ResultSet rs = smt.executeQuery(query);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	}
     
     //withdraw
     protected void widthdraw(){
