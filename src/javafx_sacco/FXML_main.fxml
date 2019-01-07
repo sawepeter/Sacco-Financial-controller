@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Icon?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -23,61 +25,86 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="561.0" prefWidth="848.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="1042.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="14.0" layoutY="20.0" text="Nakimo Sacco">
          <font>
             <Font name="Forte" size="41.0" />
          </font>
       </Label>
-      <JFXTabPane layoutY="85.0" prefHeight="475.0" prefWidth="848.0">
+      <JFXTabPane layoutY="88.0" prefHeight="526.0" prefWidth="1042.0">
          <tabs>
             <Tab text="Account">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TabPane layoutX="-6.0" prefHeight="438.0" prefWidth="854.0" tabClosingPolicy="UNAVAILABLE">
+                        <TabPane layoutX="-6.0" prefHeight="491.0" prefWidth="1048.0" tabClosingPolicy="UNAVAILABLE">
                            <tabs>
                               <Tab text="New Account">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="372.0" prefWidth="848.0">
                                        <children>
-                                          <TextField layoutX="358.0" layoutY="57.0" prefHeight="33.0" prefWidth="229.0" />
-                                          <Label layoutX="220.0" layoutY="60.0" text="First Name :">
+                                          <Label layoutX="341.0" layoutY="31.0" text="First Name :">
                                              <font>
                                                 <Font size="19.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="220.0" layoutY="106.0" text="Second Name :">
+                                          <Label layoutX="341.0" layoutY="77.0" text="Second Name :">
                                              <font>
                                                 <Font size="19.0" />
                                              </font>
                                           </Label>
-                                          <TextField layoutX="358.0" layoutY="103.0" prefHeight="33.0" prefWidth="229.0" />
-                                          <Label layoutX="220.0" layoutY="148.0" text="Password :">
+                                          <Label layoutX="341.0" layoutY="125.0" text="Password :">
                                              <font>
                                                 <Font size="19.0" />
                                              </font>
                                           </Label>
-                                          <TextField layoutX="358.0" layoutY="146.0" prefHeight="33.0" prefWidth="229.0" />
-                                          <Label layoutX="220.0" layoutY="189.0" text="National ID:">
+                                          <Label layoutX="342.0" layoutY="172.0" text="National ID:">
                                              <font>
                                                 <Font size="19.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="220.0" layoutY="234.0" text="Date of Birth :">
+                                          <Label layoutX="341.0" layoutY="271.0" text="Date of Birth :">
                                              <font>
                                                 <Font size="19.0" />
                                              </font>
                                           </Label>
-                                          <TextField layoutX="358.0" layoutY="187.0" prefHeight="33.0" prefWidth="229.0" />
-                                          <JFXDatePicker defaultColor="#0cd750" layoutX="358.0" layoutY="234.0" prefHeight="29.0" prefWidth="229.0" style="-fx-background-color: white;" />
-                                          <JFXButton layoutX="356.0" layoutY="304.0" prefHeight="46.0" prefWidth="143.0" text="Register">
+                                          <JFXDatePicker defaultColor="#1fc1c9" layoutX="488.0" layoutY="270.0" prefHeight="29.0" prefWidth="289.0" style="-fx-background-color: white;" />
+                                          <JFXButton layoutX="489.0" layoutY="327.0" prefHeight="46.0" prefWidth="143.0" style="-fx-background-color: #ff0180;" text="Register" textFill="#070707">
                                              <font>
                                                 <Font size="23.0" />
                                              </font>
                                           </JFXButton>
+                                          <Label layoutX="341.0" layoutY="221.0" text="Gender">
+                                             <font>
+                                                <Font size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Group />
+                                          <JFXRadioButton layoutX="532.0" layoutY="226.0" text="Male" textFill="#f5f2f2">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font></JFXRadioButton>
+                                          <JFXRadioButton layoutX="665.0" layoutY="226.0" text="Female" textFill="#eeecec">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font></JFXRadioButton>
+                                          <TextField layoutX="488.0" layoutY="26.0" prefHeight="39.0" prefWidth="289.0" style="-fx-background-color: #9a9898;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField layoutX="488.0" layoutY="72.0" prefHeight="39.0" prefWidth="289.0" style="-fx-background-color: #9a9898;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField layoutX="488.0" layoutY="167.0" prefHeight="39.0" prefWidth="289.0" style="-fx-background-color: #9a9898;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <PasswordField layoutX="488.0" layoutY="120.0" prefHeight="39.0" prefWidth="289.0" style="-fx-background-color: #9a9898;" />
                                        </children>
                                     </AnchorPane>
                                 </content>
@@ -86,45 +113,42 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="345.0" prefWidth="776.0">
                                        <children>
-                                          <JFXButton buttonType="RAISED" layoutX="346.0" layoutY="80.0" prefHeight="38.0" prefWidth="113.0" text="Search">
-                                             <graphic>
-                                                <Icon content="SEARCH" prefHeight="29.0" prefWidth="40.0" />
-                                             </graphic>
+                                          <JFXButton buttonType="RAISED" layoutX="468.0" layoutY="100.0" prefHeight="38.0" prefWidth="113.0" style="-fx-background-color: #ff0180;" text="Search" textFill="#fbfafa">
                                              <font>
                                                 <Font name="Georgia Bold" size="15.0" />
                                              </font>
                                           </JFXButton>
-                                          <Label layoutX="196.0" layoutY="164.0" text="Name :">
+                                          <Label layoutX="315.0" layoutY="171.0" text="Name :">
                                              <font>
                                                 <Font size="19.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="196.0" layoutY="202.0" prefHeight="38.0" prefWidth="122.0" text="Account No  :">
+                                          <Label layoutX="315.0" layoutY="209.0" prefHeight="38.0" prefWidth="122.0" text="Account No  :">
                                              <font>
                                                 <Font size="19.0" />
                                              </font>
                                           </Label>
-                                          <Label layoutX="197.0" layoutY="253.0" text="Account Balance :">
+                                          <Label layoutX="316.0" layoutY="260.0" text="Account Balance :">
                                              <font>
                                                 <Font size="19.0" />
                                              </font>
                                           </Label>
-                                          <JFXTextField alignment="CENTER" layoutX="193.0" layoutY="21.0" prefHeight="38.0" prefWidth="418.0" promptText="Enter Customer ID" style="-fx-text-inner-color: white;">
+                                          <JFXTextField alignment="CENTER" layoutX="315.0" layoutY="41.0" prefHeight="38.0" prefWidth="418.0" promptText="Enter National ID" style="-fx-background-color: #b8b6b6; -fx-border-radius: 15;">
                                              <font>
                                                 <Font size="21.0" />
                                              </font>
                                           </JFXTextField>
-                                          <TextField layoutX="365.0" layoutY="165.0" prefHeight="26.0" prefWidth="249.0" promptText="NULL">
+                                          <TextField layoutX="484.0" layoutY="172.0" prefHeight="26.0" prefWidth="249.0" promptText="NULL">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                           </TextField>
-                                          <TextField layoutX="365.0" layoutY="208.0" prefHeight="26.0" prefWidth="249.0" promptText="NULL">
+                                          <TextField layoutX="484.0" layoutY="215.0" prefHeight="26.0" prefWidth="249.0" promptText="NULL">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                           </TextField>
-                                          <TextField layoutX="365.0" layoutY="254.0" prefHeight="26.0" prefWidth="249.0" promptText="NULL">
+                                          <TextField layoutX="484.0" layoutY="261.0" prefHeight="26.0" prefWidth="249.0" promptText="NULL">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -137,34 +161,41 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <Label layoutX="47.0" layoutY="79.0" text="Account Number">
+                                          <Label layoutX="60.0" layoutY="80.0" text="Account Number">
                                              <font>
                                                 <Font size="19.0" />
                                              </font>
                                           </Label>
-                                          <Separator layoutX="473.0" layoutY="31.0" orientation="VERTICAL" prefHeight="287.0" prefWidth="15.0" />
-                                          <TextField layoutX="222.0" layoutY="77.0" prefHeight="33.0" prefWidth="229.0" style="-fx-inner-text-color: white;" />
-                                          <Label layoutX="51.0" layoutY="137.0" text="Amount">
+                                          <Separator layoutX="531.0" layoutY="28.0" orientation="VERTICAL" prefHeight="287.0" prefWidth="15.0" />
+                                          <TextField layoutX="222.0" layoutY="77.0" prefHeight="33.0" prefWidth="229.0" style="-fx-background-color: #9a9898;" />
+                                          <Label layoutX="60.0" layoutY="138.0" text="Amount">
                                              <font>
                                                 <Font size="19.0" />
                                              </font>
                                           </Label>
-                                          <TextField layoutX="222.0" layoutY="135.0" prefHeight="33.0" prefWidth="229.0" />
-                                          <JFXButton buttonType="RAISED" layoutX="166.0" layoutY="227.0" prefHeight="38.0" prefWidth="113.0" text="Deposit">
-                                             <graphic>
-                                                <Icon content="BACKUP" prefHeight="29.0" prefWidth="40.0" />
-                                             </graphic>
+                                          <TextField layoutX="222.0" layoutY="135.0" prefHeight="33.0" prefWidth="229.0" style="-fx-background-color: #9a9898;" />
+                                          <JFXButton buttonType="RAISED" layoutX="174.0" layoutY="216.0" prefHeight="38.0" prefWidth="163.0" style="-fx-background-color: #ff0180;" text="Deposit Cash">
                                              <font>
-                                                <Font name="Georgia Bold" size="15.0" />
+                                                <Font name="Georgia" size="15.0" />
                                              </font>
                                           </JFXButton>
-                                          <ImageView fitHeight="66.0" fitWidth="203.0" layoutX="560.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="239.0" fitWidth="494.0" layoutX="546.0" layoutY="66.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../../../../../Desktop/lipanamp.png" />
+                                                <Image url="@../images/lipanamp.png" />
                                              </image>
                                           </ImageView>
-                                          <JFXTextField alignment="CENTER" layoutX="523.0" layoutY="94.0" prefHeight="32.0" prefWidth="216.0" promptText="Enter Phone Number" />
-                                          <JFXButton layoutX="573.0" layoutY="168.0" prefHeight="39.0" prefWidth="116.0" text="Deposit" />
+                                          <JFXTextField alignment="CENTER" layoutX="647.0" layoutY="77.0" prefHeight="32.0" prefWidth="292.0" promptText="Phone Number( e.g 2547..)" style="-fx-background-color: #b8b6b6;" unFocusColor="#464343">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font></JFXTextField>
+                                          <JFXButton layoutX="697.0" layoutY="223.0" prefHeight="39.0" prefWidth="193.0" style="-fx-background-color: #ff0180;" text="Deposit from Mpesa">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font></JFXButton>
+                                          <JFXTextField alignment="CENTER" layoutX="649.0" layoutY="135.0" prefHeight="32.0" prefWidth="290.0" promptText="Enter Amount" style="-fx-background-color: #b8b6b6;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font></JFXTextField>
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -173,32 +204,33 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <Label layoutX="180.0" layoutY="194.0" text="Account Number">
-                                             <font>
-                                                <Font size="19.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField layoutX="338.0" layoutY="79.0" prefHeight="33.0" prefWidth="229.0" />
-                                          <Label layoutX="184.0" layoutY="81.0" text="Amount">
-                                             <font>
-                                                <Font size="19.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField layoutX="338.0" layoutY="192.0" prefHeight="33.0" prefWidth="229.0" />
-                                          <JFXButton buttonType="RAISED" layoutX="334.0" layoutY="285.0" prefHeight="38.0" prefWidth="159.0" text="Withdraw">
-                                             <graphic>
-                                                <Icon content="NAVIGATE_NEXT" prefHeight="29.0" prefWidth="40.0" />
-                                             </graphic>
-                                             <font>
-                                                <Font name="Georgia Bold" size="15.0" />
-                                             </font>
-                                          </JFXButton>
-                                          <Label layoutX="184.0" layoutY="148.0" text="Password">
-                                             <font>
-                                                <Font size="19.0" />
-                                             </font>
-                                          </Label>
-                                          <PasswordField layoutX="338.0" layoutY="145.0" prefHeight="31.0" prefWidth="231.0" />
+                                          <Pane layoutX="274.0" layoutY="42.0" prefHeight="309.0" prefWidth="501.0">
+                                             <children>
+                                                <Label layoutX="58.0" layoutY="147.0" text="Amount">
+                                                   <font>
+                                                      <Font size="19.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField layoutX="212.0" layoutY="47.0" prefHeight="33.0" prefWidth="229.0" style="-fx-background-color: #9a9898;" />
+                                                <Label layoutX="58.0" layoutY="49.0" text="Account Number">
+                                                   <font>
+                                                      <Font size="19.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField layoutX="212.0" layoutY="144.0" prefHeight="33.0" prefWidth="229.0" style="-fx-background-color: #9a9898;" />
+                                                <JFXButton buttonType="RAISED" layoutX="212.0" layoutY="230.0" prefHeight="38.0" prefWidth="130.0" style="-fx-background-color: #ff0180;" text="Withdraw">
+                                                   <font>
+                                                      <Font name="Georgia" size="15.0" />
+                                                   </font>
+                                                </JFXButton>
+                                                <Label layoutX="58.0" layoutY="100.0" text="National I.D">
+                                                   <font>
+                                                      <Font size="19.0" />
+                                                   </font>
+                                                </Label>
+                                                <PasswordField layoutX="211.0" layoutY="98.0" prefHeight="31.0" prefWidth="231.0" style="-fx-background-color: #9a9898;" />
+                                             </children>
+                                          </Pane>
                                        </children>
                                     </AnchorPane>
                                  </content>
@@ -208,89 +240,130 @@
                      </children>
                   </AnchorPane>
                </content>
-               <graphic>
-                  <Icon content="HOME" />
-               </graphic>
             </Tab>
             <Tab text="Loans">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TabPane prefHeight="408.0" prefWidth="781.0" tabClosingPolicy="UNAVAILABLE">
+                        <TabPane prefHeight="490.0" prefWidth="1042.0" tabClosingPolicy="UNAVAILABLE">
                            <tabs>
-                              <Tab text="Pay">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                 </content>
-                              </Tab>
                               <Tab text="Apply">
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                        <children>
-                                          <Label layoutX="14.0" layoutY="55.0" text="Account Number">
+                                          <Label layoutX="587.0" layoutY="50.0" text="Account Number">
                                              <font>
                                                 <Font size="19.0" />
                                              </font>
                                           </Label>
-                                          <TextField layoutX="171.0" layoutY="53.0" prefHeight="33.0" prefWidth="229.0" style="-fx-inner-text-color: white;" />
-                                          <Label layoutX="14.0" layoutY="101.0" text="Amount">
+                                          <TextField layoutX="744.0" layoutY="48.0" prefHeight="33.0" prefWidth="229.0" style="-fx-inner-text-color: white;" />
+                                          <Label layoutX="587.0" layoutY="96.0" text="Amount">
                                              <font>
                                                 <Font size="19.0" />
                                              </font>
                                           </Label>
-                                          <TextField layoutX="171.0" layoutY="98.0" prefHeight="33.0" prefWidth="229.0" />
-                                          <Label layoutX="14.0" layoutY="150.0" text="Period">
+                                          <TextField layoutX="744.0" layoutY="93.0" prefHeight="33.0" prefWidth="229.0" />
+                                          <Label layoutX="587.0" layoutY="145.0" text="Period">
                                              <font>
                                                 <Font size="19.0" />
                                              </font>
                                           </Label>
-                                          <TextField layoutX="171.0" layoutY="147.0" prefHeight="33.0" prefWidth="229.0" style="-fx-inner-text-color: white;" />
-                                          <ComboBox layoutX="171.0" layoutY="202.0" prefHeight="28.0" prefWidth="229.0" />
-                                          <Label layoutX="14.0" layoutY="202.0" text="Interest Rate">
+                                          <TextField layoutX="744.0" layoutY="142.0" prefHeight="33.0" prefWidth="229.0" style="-fx-inner-text-color: white;" />
+                                          <ComboBox layoutX="744.0" layoutY="197.0" prefHeight="28.0" prefWidth="229.0" />
+                                          <Label layoutX="587.0" layoutY="197.0" text="Interest Rate">
                                              <font>
                                                 <Font size="19.0" />
                                              </font>
                                           </Label>
-                                          <Separator layoutX="451.0" layoutY="47.0" orientation="VERTICAL" prefHeight="264.0" prefWidth="17.0" />
-                                          <JFXButton buttonType="RAISED" layoutX="158.0" layoutY="271.0" prefHeight="40.0" prefWidth="109.0" text="Apply" textFill="#fcf9f9">
+                                          <Separator layoutX="513.0" layoutY="45.0" orientation="VERTICAL" prefHeight="264.0" prefWidth="17.0" />
+                                          <JFXButton buttonType="RAISED" layoutX="731.0" layoutY="266.0" prefHeight="40.0" prefWidth="109.0" style="-fx-background-color: #ff0180;" text="Apply" textFill="#030303">
                                              <font>
                                                 <Font name="System Bold" size="20.0" />
                                              </font>
                                           </JFXButton>
-                                          <TextField alignment="CENTER" layoutX="491.0" layoutY="147.0" prefHeight="33.0" prefWidth="269.0" promptText="Enter Account Number" style="-fx-inner-text-color: white;" />
-                                          <JFXButton buttonType="RAISED" layoutX="571.0" layoutY="196.0" prefHeight="40.0" prefWidth="109.0" text="Check" textFill="#fcf9f9">
+                                          <JFXButton buttonType="RAISED" layoutX="204.0" layoutY="189.0" prefHeight="46.0" prefWidth="103.0" style="-fx-background-color: #ff0180;" text="Check" textFill="#0a0a0a">
                                              <font>
-                                                <Font name="System Bold" size="20.0" />
+                                                <Font name="System Bold" size="17.0" />
                                              </font>
                                           </JFXButton>
-                                          <Label layoutX="519.0" layoutY="69.0" text="Check for Eligibility">
+                                          <Label layoutX="153.0" layoutY="61.0" text="Check for Eligibility">
                                              <font>
                                                 <Font name="AR DARLING" size="24.0" />
                                              </font>
                                           </Label>
+                                          <JFXTextField alignment="CENTER" layoutX="118.0" layoutY="129.0" prefHeight="32.0" prefWidth="281.0" promptText="Enter Phone Number" style="-fx-background-color: #b8b6b6;">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </JFXTextField>
                                        </children>
                                     </AnchorPane>
                                  </content>
+                                 <styleClass>
+                                    <String fx:value="tab-header-area" />
+                                    <String fx:value="tab" />
+                                 </styleClass>
+                              </Tab>
+                              <Tab text="Pay">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="34.0" layoutY="105.0" text="Account Number">
+                                             <font>
+                                                <Font size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField layoutX="189.0" layoutY="161.0" prefHeight="33.0" prefWidth="229.0" style="-fx-inner-text-color: white;" />
+                                          <Label layoutX="38.0" layoutY="164.0" text="Amount">
+                                             <font>
+                                                <Font size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField layoutX="189.0" layoutY="103.0" prefHeight="33.0" prefWidth="229.0" />
+                                          <JFXButton buttonType="RAISED" layoutX="133.0" layoutY="227.0" prefHeight="38.0" prefWidth="113.0" style="-fx-background-color: #ff0180;" text="Pay">
+                                             <font>
+                                                <Font name="Georgia Bold" size="15.0" />
+                                             </font>
+                                          </JFXButton>
+                                          <ImageView fitHeight="266.0" fitWidth="497.0" layoutX="531.0" layoutY="75.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/lipanamp.png" />
+                                             </image>
+                                          </ImageView>
+                                          <JFXTextField alignment="CENTER" layoutX="630.0" layoutY="103.0" prefHeight="32.0" prefWidth="312.0" promptText="Phone number (e.g 2547..)" style="-fx-background-color: #b8b6b6;" />
+                                          <JFXButton layoutX="725.0" layoutY="227.0" prefHeight="39.0" prefWidth="124.0" style="-fx-background-color: #ff0180;" text="Lipa na Mpesa">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font></JFXButton>
+                                          <Separator layoutX="514.0" layoutY="49.0" orientation="VERTICAL" prefHeight="287.0" prefWidth="15.0" />
+                                          <JFXTextField alignment="CENTER" layoutX="630.0" layoutY="148.0" prefHeight="32.0" prefWidth="313.0" promptText="Amount" style="-fx-background-color: #b8b6b6;" />
+                                       </children></AnchorPane>
+                                 </content>
+                                 <styleClass>
+                                    <String fx:value="tab" />
+                                    <String fx:value="tab-header-area" />
+                                 </styleClass>
                               </Tab>
                               <Tab text="Loan Status">
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                                  </content>
+                                 <styleClass>
+                                    <String fx:value="tab" />
+                                    <String fx:value="tab-header-area" />
+                                 </styleClass>
                               </Tab>
                            </tabs>
                         </TabPane>
                      </children>
                   </AnchorPane>
                </content>
-               <graphic>
-                  <Icon content="HISTORY" />
-               </graphic>
             </Tab>
             <Tab text="Customer List">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView layoutX="-1.0" layoutY="1.0" prefHeight="434.0" prefWidth="848.0">
+                        <TableView layoutX="-1.0" layoutY="1.0" prefHeight="490.0" prefWidth="1042.0">
                            <columns>
                               <TableColumn minWidth="155.0" prefWidth="155.0" text="First Name" />
                               <TableColumn minWidth="155.0" prefWidth="155.0" text="Last Name" />
@@ -303,28 +376,27 @@
                      </children>
                   </AnchorPane>
                </content>
-               <graphic>
-                  <Icon content="PERSON" />
-               </graphic>
             </Tab>
             <Tab text="Transactions">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <LineChart layoutX="63.0" layoutY="40.0" prefHeight="317.0" prefWidth="651.0">
-                           <xAxis>
-                              <CategoryAxis label="Days" side="BOTTOM" />
-                           </xAxis>
-                           <yAxis>
-                              <NumberAxis label="Number of transactions" side="LEFT" />
-                           </yAxis>
-                        </LineChart>
+                        <Pane layoutX="21.0" layoutY="48.0" prefHeight="398.0" prefWidth="615.0" style="-fx-border-color: black;">
+                           <children>
+                              <BarChart barGap="2.0" categoryGap="20.0" layoutX="1.0" layoutY="31.0" prefHeight="400.0" prefWidth="613.0">
+                                 <xAxis>
+                                    <CategoryAxis label="Days" side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis label="Number of Transcations" side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="657.0" layoutY="48.0" prefHeight="397.0" prefWidth="365.0" />
                      </children>
                   </AnchorPane>
                </content>
-               <graphic>
-                  <Icon content="TRAFFIC" />
-               </graphic>
             </Tab>
             <Tab text="Messages">
                <content>
@@ -341,15 +413,14 @@
                               <Label layoutX="35.0" layoutY="54.0" text="Charity Wairimu" textFill="#070000" />
                               <Label layoutX="35.0" layoutY="80.0" text="James Gitau" textFill="#030000" />
                               <Label layoutX="35.0" layoutY="108.0" text="Francis Muchiri" textFill="#030000" />
-                              <Icon content="NOTIFICATIONS_ACTIVE" layoutX="188.0" layoutY="55.0" style="-fx-background-color: green;" />
                            </children>
                         </Pane>
-                        <Pane layoutX="233.0" prefHeight="437.0" prefWidth="614.0" style="-fx-background-color: grey;">
+                        <Pane layoutX="233.0" prefHeight="489.0" prefWidth="810.0" style="-fx-background-color: grey;">
                            <children>
-                              <JFXButton layoutX="546.0" layoutY="379.0" text="Send" />
-                              <JFXTextField layoutX="14.0" layoutY="367.0" prefHeight="56.0" prefWidth="518.0" promptText="Enter Message ...." />
-                              <Separator layoutX="14.0" layoutY="347.0" prefHeight="20.0" prefWidth="597.0" />
-                              <Pane layoutX="307.0" layoutY="30.0" prefHeight="59.0" prefWidth="285.0" style="-fx-background-color: white;">
+                              <JFXButton layoutX="742.0" layoutY="431.0" text="Send" />
+                              <JFXTextField layoutX="14.0" layoutY="419.0" prefHeight="56.0" prefWidth="714.0" promptText="Enter Message ...." />
+                              <Separator layoutX="14.0" layoutY="399.0" prefHeight="20.0" prefWidth="778.0" />
+                              <Pane layoutX="484.0" layoutY="33.0" prefHeight="59.0" prefWidth="285.0" style="-fx-background-color: white;">
                                  <children>
                                     <Label layoutX="196.0" layoutY="14.0" text="Hey Charity,">
                                        <font>
@@ -377,7 +448,7 @@
                                     </Label>
                                  </children>
                               </Pane>
-                              <Pane layoutX="307.0" layoutY="204.0" prefHeight="111.0" prefWidth="285.0" style="-fx-background-color: white;">
+                              <Pane layoutX="484.0" layoutY="207.0" prefHeight="111.0" prefWidth="285.0" style="-fx-background-color: white;">
                                  <children>
                                     <Label layoutX="14.0" layoutY="81.0" text="11:21 pm  12 Sep">
                                        <font>
@@ -397,22 +468,26 @@
                      </children>
                   </AnchorPane>
                </content>
-               <graphic>
-                  <Icon content="MAIL" />
-               </graphic>
             </Tab>
          </tabs>
       </JFXTabPane>
-      <Label layoutX="675.0" layoutY="10.0" text="Welcome: ">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="750.0" layoutY="10.0" text="Dear Patrick">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <JFXButton buttonType="RAISED" layoutX="750.0" layoutY="43.0" prefHeight="32.0" prefWidth="81.0" text="Log Out" />
+      <Pane layoutX="842.0" layoutY="3.0" prefHeight="81.0" prefWidth="193.0">
+         <children>
+            <Label layoutX="19.0" layoutY="8.0" text="Welcome: ">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="94.0" layoutY="8.0" text="Dear Patrick">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="94.0" layoutY="41.0" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #ff0180;" text="Log Out">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></JFXButton>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
