@@ -10,7 +10,7 @@ public class Account {
     Connection conn;
     
     //register an new customer
-    protected void register(String fname,String lname,String pass,String id){
+    protected void register(String fname,String lname,String pass,String id) {
         this.first_name = fname;
         this.second_name = lname;
         this.password = pass;
@@ -34,7 +34,6 @@ public class Account {
     //check balance
     protected void checkBalance(String id){
         this.national_id = id;
-      
         
         try{
             Class.forName("com.mysql.jdbc.Driver");
