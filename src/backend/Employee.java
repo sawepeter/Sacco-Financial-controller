@@ -1,16 +1,27 @@
 package backend;
 
 import java.sql.*;
+import javax.swing.JOptionPane;
 
+/*
+    GIT
+    -added logout method
+    -added comments
+*/
 public class Employee  {
     
     String fname,lname,sname,email,password,date,national_id;
-   
     Connection conn;
+    
+    public  String user = null;
+    public Boolean route = false;
+    
+
     public Employee(){
         
     }
     
+
     public Employee(String f, String l, String s,String n,String d){
         this.fname = f;
         this.lname = l;
@@ -18,8 +29,8 @@ public class Employee  {
         this.national_id = n;
         this.date = d;
     }
-    public  String user = null;
-    public Boolean route = false;
+    
+   
     public void login(String em, String ps){
         
         this.email = em;
@@ -27,10 +38,10 @@ public class Employee  {
         try{
             Class.forName("com.mysql.jdbc.Driver");
 
-            //mysql connection
+       
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sacco","root", "bonoko1289");
 
-            //connection object
+      
             Statement smt = conn.createStatement();
             String query ="SELECT first_name,email,password FROM empl where email="+em;
           
@@ -43,19 +54,23 @@ public class Employee  {
                     user = rs.getString("first_name"); 
                 }
                 else{
-                    System.out.println("invalid details");
+                    JOptionPane.showMessageDialog(null, "Invalid details");
                 } 
             }   
             
           }
         catch(Exception e){
-          e.printStackTrace();
+          JOptionPane.showMessageDialog(null, "Server Error");
       }
     }
-    
-    
+
+
     void register(String fn,String ln,String sn,String ni,String da){
         
+    }
+    
+    String logout(){
+        return user+" Succesffully logout"
     }
     
 }
