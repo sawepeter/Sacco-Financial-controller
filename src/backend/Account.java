@@ -3,17 +3,17 @@ package backend;
 import java.sql.*;
 
 public class Account {
-    String mysql_url = "jdbc:mysql://localhost:3306/sacco";
-    String mysql_user = "root";
-    String mysql_password = "bonoko1289";
+    final String mysql_url = "jdbc:mysql://localhost:3306/sacco";
+    final String mysql_user = "root";
+    final String mysql_password = "bonoko1289";
     
-    String first_name = null;
-    String second_name = null;
-    String national_id =null;
-    String Account_No =null;
-    String password = null;
-    double balance = 0.0;
-    double deposit = 0.0;
+    public String first_name = null;
+    public String second_name = null;
+    public String national_id =null;
+    protected String Account_No =null;
+    protected String password = null;
+    protected double balance = 0.0;
+    protected double deposit = 0.0;
     
     Connection conn;
     
