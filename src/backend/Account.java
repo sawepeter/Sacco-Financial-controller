@@ -3,10 +3,18 @@ package backend;
 import java.sql.*;
 
 public class Account {
+    String mysql_url = "jdbc:mysql://localhost:3306/sacco";
+    String mysql_user = "root";
+    String mysql_password = "bonoko1289";
     
-    public String first_name = null,second_name = null,national_id =null;
-    protected String Account_No =null ,password = null;
-    protected double balance = 0.0,deposit = 0.0;
+    String first_name = null;
+    String second_name = null;
+    String national_id =null;
+    String Account_No =null;
+    String password = null;
+    double balance = 0.0;
+    double deposit = 0.0;
+    
     Connection conn;
     
     //register an new customer
@@ -18,7 +26,7 @@ public class Account {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             //mysql connection
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sacco","root", "bonoko1289");
+            conn = DriverManager.getConnection(mysql_url,mysql_user, mysql_password);
             //connection object
             Statement smt = conn.createStatement();
             String query ="INSERT INTO customer values("+fname+""+lname+""+pass+""+id+""+")";
@@ -38,10 +46,10 @@ public class Account {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             //mysql connection
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sacco","root", "bonoko1289");
+             conn = DriverManager.getConnection(mysql_url,mysql_user, mysql_password);
             //connection object
             Statement smt = conn.createStatement();
-            String query ="SELECT first_name,account_no,balance FROM empl where national_id="+id;
+            String query ="SELECT first_name,account_no,balance FROM account where national_id="+id;
             ResultSet rs = smt.executeQuery(query);  
             while(rs.next()){
                 
@@ -58,24 +66,25 @@ public class Account {
     
     //deposit
     protected void deposit(String id,double _depo){
-		this.national_id = id;
-		this.deposit = _depo;
-		try{
-			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sacco","root", "bonoko1289");
-			Statement smt = conn.createStatement();
-			String query ="UPDATE balance"+_depo+" FROM customer where national_id="+id;
-			ResultSet rs = smt.executeQuery(query);
-		}
-		catch(Exception e){
-			e.printStackTrace();
-		}
-	}
+        this.national_id = id;
+        this.deposit = _depo;
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(mysql_url,mysql_user, mysql_password);
+            Statement smt = conn.createStatement();
+            String query ="UPDATE customer SET balance = balance where national_id="+id;
+            smt.executeQuery(query);
+
+        }
+        catch(Exception e){
+                e.printStackTrace();
+        }
+    }
     
     //withdraw
     protected void widthdraw(){
         
     }
     
-    //
+
 }
