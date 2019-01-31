@@ -72,7 +72,7 @@ public class Account {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(mysql_url,mysql_user, mysql_password);
             Statement smt = conn.createStatement();
-            String query ="UPDATE customer SET balance = balance where national_id="+id;
+            String query ="UPDATE customer SET balance = balance "+_depo+" where national_id="+id;
             smt.executeQuery(query);
 
         }
