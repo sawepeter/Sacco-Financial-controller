@@ -1,10 +1,10 @@
-package backend;
+package util;
 
 import javafx.util.Duration;
 import tray.animations.AnimationType;
 import tray.notification.*;
 
-public class Notify {
+public class TrayNotify {
    String title;
    String message;
    String notificationtype;
