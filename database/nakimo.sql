@@ -37,7 +37,7 @@ ENGINE = InnoDB;
 -- Table `Nakimo`.`Employee`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Nakimo`.`Employee` (
-  `Employee_ID` VARCHAR(10000) NOT NULL,
+  `Employee_ID` VARCHAR(100) NOT NULL,
   `First_Name` VARCHAR(45) NULL,
   `Last_Name` VARCHAR(45) NULL,
   `Email` VARCHAR(100) NULL,
@@ -53,7 +53,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Nakimo`.`Transcations` (
   `id` INT NOT NULL,
-  `Employee_Employee_ID` VARCHAR(10000) NOT NULL,
+  `Employee_Employee_ID` VARCHAR(100) NOT NULL,
   `Account_Account_ID` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`, `Employee_Employee_ID`, `Account_Account_ID`),
   INDEX `fk_Transcations_Employee_idx` (`Employee_Employee_ID` ASC),
@@ -75,7 +75,7 @@ ENGINE = InnoDB;
 -- Table `Nakimo`.`Loans`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Nakimo`.`Loans` (
-  `Loan_ID` VARCHAR(10000) NOT NULL,
+  `Loan_ID` VARCHAR(100) NOT NULL,
   `Amount` INT NOT NULL,
   `Date_Issued` DATETIME NULL,
   `rate` DOUBLE NULL,
