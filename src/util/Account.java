@@ -1,12 +1,11 @@
-package backend;
+package util;
 
 import java.sql.*;
+import util.TrayNotify;
+import util.Mysql_Connect;
 
 public class Account {
-    final String mysql_url = "jdbc:mysql://localhost:3306/sacco";
-    final String mysql_user = "root";
-    final String mysql_password = "bonoko1289";
-    
+ 
     public String first_name = null;
     public String second_name = null;
     public String national_id =null;
@@ -15,27 +14,38 @@ public class Account {
     protected double balance = 0.0;
     protected double deposit = 0.0;
     
-    Connection conn;
+    Connection connection = null;
+    PreparedStatement preparedStatement  = null;
+    ResultSet resultSet = null;
+    
+    TrayNotify notification = new TrayNotify();
+    
+    public Account(){
+        connection = Mysql_Connect.connectdb();
+    }
+    
     
     //register an new customer
-    protected void register(String fname,String lname,String pass,String id) {
-        this.first_name = fname;
-        this.second_name = lname;
-        this.password = pass;
-        this.national_id = id;
+    public void register(String acc_no,String fname,String lname,String sname,String id, String gender) {
+        
         try{
-            Class.forName("com.mysql.jdbc.Driver");
-            //mysql connection
-            conn = DriverManager.getConnection(mysql_url,mysql_user, mysql_password);
-            //connection object
-            Statement smt = conn.createStatement();
-            String query ="INSERT INTO customer values("+fname+""+lname+""+pass+""+id+""+")";
-          
-            smt.executeQuery(query);      
+            String sql = "INSERT INTO customer( Account_ID, First_Name,Last_Name,Surname_Name,"
+                    + "National_ID,Gender) values(?,?,?,?,?,?)";
+            
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, acc_no);
+            preparedStatement.setString(2, fname);
+            preparedStatement.setString(3, lname);
+            preparedStatement.setString(4, sname);
+            preparedStatement.setString(5, id);
+            preparedStatement.setString(6, gender);
+            preparedStatement.executeQuery();
+            
+            notification.PopupAnimation("Registration", "Successfuly registered a new customer", "SUCCESS", 3);
          }
        
         catch(Exception e){
-            e.printStackTrace();
+            notification.PopupAnimation("Registration", "An error occured Please try again", "ERROR", 3);
         }
         
     }
@@ -44,20 +54,17 @@ public class Account {
         this.national_id = id;
         
         try{
-            Class.forName("com.mysql.jdbc.Driver");
-            //mysql connection
-             conn = DriverManager.getConnection(mysql_url,mysql_user, mysql_password);
-            //connection object
-            Statement smt = conn.createStatement();
-            String query ="SELECT first_name,account_no,balance FROM account where national_id="+id;
-            ResultSet rs = smt.executeQuery(query);  
+            
+            Statement statement = connection.createStatement();
+            String query ="SELECT First_Name,Account_ID,balance FROM account where National_ID="+id;
+            ResultSet rs = statement.executeQuery(query);  
             while(rs.next()){
                 
                 first_name = rs.getString("first_name");
                 Account_No = rs.getString("account_no");
                 balance = rs.getDouble("balance");
-          
-            }   
+            }  
+           
           }
         catch(Exception e){
           e.printStackTrace();
@@ -69,15 +76,16 @@ public class Account {
         this.national_id = id;
         this.deposit = _depo;
         try{
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection(mysql_url,mysql_user, mysql_password);
-            Statement smt = conn.createStatement();
-            String query ="UPDATE customer SET balance = balance "+_depo+" where national_id="+id;
-            smt.executeQuery(query);
-
+   
+            Statement statement = connection.createStatement();
+            String query ="UPDATE account SET balance = balance "+_depo+" where National_ID="+id;
+            statement.executeQuery(query);
+            
+            notification.slideAnimation("Registration", "Successfuly deposited "+_depo, "SUCCESS", 2);
         }
+        
         catch(Exception e){
-                e.printStackTrace();
+            notification.PopupAnimation("Deposit", "An error occured in depositing "+_depo, "INFORMATION", 3);
         }
     }
     
