@@ -21,13 +21,15 @@ USE `Nakimo` ;
 -- Table `Nakimo`.`Account`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Nakimo`.`Account` (
-  `Account_ID` VARCHAR(20) NOT NULL,
+  `Account_ID` INT(200) NOT NULL AUTO_INCREMENT,
   `First_Name` VARCHAR(50) NULL,
   `Last_Name` VARCHAR(50) NULL,
   `Surname_Name` VARCHAR(50) NULL,
   `National_ID` VARCHAR(15) NULL,
+  `Balance` INT(100)  NULL,
   `Gender` VARCHAR(20) NULL,
-  `D.O.B` DATETIME NULL,
+  `Birthdate` DATE NULL,
+  `Picture` VARCHAR(50) NULL,
   PRIMARY KEY (`Account_ID`),
   UNIQUE INDEX `Account_ID_UNIQUE` (`Account_ID` ASC))
 ENGINE = InnoDB;
@@ -37,13 +39,14 @@ ENGINE = InnoDB;
 -- Table `Nakimo`.`Employee`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Nakimo`.`Employee` (
-  `Employee_ID` VARCHAR(100) NOT NULL,
+  `Employee_ID` INT(200) NOT NULL AUTO_INCREMENT,
   `First_Name` VARCHAR(45) NULL,
   `Last_Name` VARCHAR(45) NULL,
   `Email` VARCHAR(100) NULL,
   `Password` VARCHAR(50) NULL,
   `Occupation` VARCHAR(45) NULL,
   `Admin` BOOLEAN NOT NULL,
+  `Picture` VARCHAR(50) NULL,
   PRIMARY KEY (`Employee_ID`))
 ENGINE = InnoDB;
 
@@ -53,8 +56,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Nakimo`.`Transcations` (
   `id` INT NOT NULL,
-  `Employee_Employee_ID` VARCHAR(100) NOT NULL,
-  `Account_Account_ID` VARCHAR(20) NOT NULL,
+  `Employee_Employee_ID`  INT(200) NOT NULL,
+  `Account_Account_ID`  INT(200) NOT NULL ,
   PRIMARY KEY (`id`, `Employee_Employee_ID`, `Account_Account_ID`),
   INDEX `fk_Transcations_Employee_idx` (`Employee_Employee_ID` ASC),
   INDEX `fk_Transcations_Account1_idx` (`Account_Account_ID` ASC),
@@ -79,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `Nakimo`.`Loans` (
   `Amount` INT NOT NULL,
   `Date_Issued` DATETIME NULL,
   `rate` DOUBLE NULL,
-  `Account_Account_ID` VARCHAR(20) NOT NULL,
+  `Account_Account_ID`  INT(200) NOT NULL ,
   PRIMARY KEY (`Loan_ID`, `Account_Account_ID`),
   INDEX `fk_Loans_Account1_idx` (`Account_Account_ID` ASC),
   CONSTRAINT `fk_Loans_Account1`
