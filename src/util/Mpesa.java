@@ -1,4 +1,4 @@
-package backend;
+package util;
 import okhttp3.*;
 import org.json.*;
 
@@ -23,7 +23,7 @@ public class Mpesa {
 
 
         OkHttpClient client = new OkHttpClient();
-
+        
         Request request = new Request.Builder()
                 .url("https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials")
                 .get()
@@ -43,6 +43,10 @@ public class Mpesa {
         return jsonObject.getString("access_token");
     }
     /*
+    error
+      RequestBody body = RequestBody.create(mediaType, requestJson);
+        class file for okio.ByteString not found
+    
     public String C2BSimulation( String shortCode, String commandID, String amount, String MSISDN, String billRefNumber) throws IOException, JSONException {
         JSONArray jsonArray=new JSONArray();
         JSONObject jsonObject=new JSONObject();

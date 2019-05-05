@@ -3,15 +3,16 @@ package util;
 import java.sql.*;
 import util.TrayNotify;
 import util.Mysql_Connect;
+import java.sql.Date;
 
 public class Account {
  
     public String first_name = null;
     public String second_name = null;
     public String national_id =null;
-    protected String Account_No =null;
+    public String Account_No =null;
     protected String password = null;
-    protected double balance = 0.0;
+    public int balance = 0;
     protected double deposit = 0.0;
     
     Connection connection = null;
@@ -24,23 +25,27 @@ public class Account {
         connection = Mysql_Connect.connectdb();
     }
     
-    
     //register an new customer
-    public void register(String acc_no,String fname,String lname,String sname,String id, String gender) {
+    public void register(String fname,String lname,String sname,String id,int bal, String gender,String date, String picture) {
         
         try{
-            String sql = "INSERT INTO customer( Account_ID, First_Name,Last_Name,Surname_Name,"
-                    + "National_ID,Gender) values(?,?,?,?,?,?)";
+            String sql = "INSERT INTO account( First_Name,Last_Name,Surname_Name,"
+                    + "National_ID, Balance,Gender,Birthdate,Picture) values(?,?,?,?,?,?,?,?)";
             
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, acc_no);
-            preparedStatement.setString(2, fname);
-            preparedStatement.setString(3, lname);
-            preparedStatement.setString(4, sname);
-            preparedStatement.setString(5, id);
+            preparedStatement.setString(1, fname);
+            preparedStatement.setString(2, lname);
+            preparedStatement.setString(3, sname);
+            preparedStatement.setString(4, id);
+            preparedStatement.setInt(5, bal);
             preparedStatement.setString(6, gender);
-            preparedStatement.executeQuery();
+            preparedStatement.setDate(7, Date.valueOf(date));
+            preparedStatement.setString(8, picture);
             
+            //check for duplicates
+            //todo
+            preparedStatement.execute();
+          
             notification.PopupAnimation("Registration", "Successfuly registered a new customer", "SUCCESS", 3);
          }
        
@@ -50,42 +55,42 @@ public class Account {
         
     }
     //check balance
-    protected void checkBalance(String id){
-        this.national_id = id;
+    public void checkBalance(String id){
         
         try{
-            
-            Statement statement = connection.createStatement();
-            String query ="SELECT First_Name,Account_ID,balance FROM account where National_ID="+id;
-            ResultSet rs = statement.executeQuery(query);  
-            while(rs.next()){
+            String query ="SELECT First_Name,Account_ID,Balance FROM account where National_ID= ?";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, id);
+            resultSet = preparedStatement.executeQuery();
+             
+            while(resultSet.next()){
                 
-                first_name = rs.getString("first_name");
-                Account_No = rs.getString("account_no");
-                balance = rs.getDouble("balance");
-            }  
-           
+                first_name = resultSet.getString("First_Name");
+                Account_No = resultSet.getString("Account_ID");
+                balance = resultSet.getInt("Balance");
+            }   
           }
         catch(Exception e){
-          e.printStackTrace();
+          notification.PopupAnimation("Search", "An error occured Please try again", "INFORMATION", 3);
       }
     }
     
     //deposit
-    protected void deposit(String id,double _depo){
-        this.national_id = id;
-        this.deposit = _depo;
+    public void deposit(String acc_no, int _depo){
+        
         try{
-   
-            Statement statement = connection.createStatement();
-            String query ="UPDATE account SET balance = balance "+_depo+" where National_ID="+id;
-            statement.executeQuery(query);
             
-            notification.slideAnimation("Registration", "Successfuly deposited "+_depo, "SUCCESS", 2);
+            String query ="UPDATE account SET balance = balance + ? where Account_ID= ?";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, _depo);
+            preparedStatement.setString(2, acc_no);
+            preparedStatement.execute();
+            
+            notification.fadeAnimation("Deposit", "Successfuly deposited "+_depo, "SUCCESS", 2);
         }
         
         catch(Exception e){
-            notification.PopupAnimation("Deposit", "An error occured in depositing "+_depo, "INFORMATION", 3);
+            notification.fadeAnimation("Deposit", "An error occured in depositing "+_depo, "INFORMATION", 3);
         }
     }
     
@@ -93,6 +98,5 @@ public class Account {
     protected void widthdraw(){
         
     }
-    
 
 }

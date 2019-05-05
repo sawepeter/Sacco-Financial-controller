@@ -11,11 +11,13 @@
   -fx-background-color:   #030d2b;
   -fx-background-insets: 0 0 1px 0;     
   -fx-padding: 1.5em 1em;
+  
+  
 }
 
 .tab-pane > .tab-header-area > .headers-region > .tab >.tab-container >.tab-label {
   -fx-text-fill: #63B5F6;
-  -fx-font-size:14px;
+  -fx-font-size:13px;
   -fx-font-weight:bold;
 }
 

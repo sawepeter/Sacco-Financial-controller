@@ -10,7 +10,7 @@ public class Mysql_Connect {
         try{
             
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nakimo","root", "bonoko1289");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nakimo","root", "");
             return conn;
         }
         catch( Exception e) {

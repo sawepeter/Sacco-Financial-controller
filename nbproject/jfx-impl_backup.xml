@@ -1679,7 +1679,6 @@
                     var fx_ant_api_1_1 = new String(project.getProperty("have-fx-ant-api-1.1"));
                     var fx_ant_api_1_2 = new String(project.getProperty("have-fx-ant-api-1.2"));
                     var fx_in_swing_app = new String(project.getProperty("fx-in-swing-app"));
-
                     // get jars with lazy download mode property set
                     function getLazyJars() {
                         var jars = new Array();
@@ -1706,7 +1705,6 @@
                     jar.setProject(project);
                     var destfile = new String(project.getProperty("pp_jar_destfile"));
                     jar.setDestfile(destfile);
-
                     // fx:application
                     var app = jar.createApplication();
                     app.setProject(project);
@@ -1920,7 +1918,6 @@
                     }
                     man.addConfiguredAttribute(sa2);
                     // Note: see JavaFX Jira issue #RT-25003 if attribute names are created lowercase in manifest
-
                     jar.perform();
                 ]]>
             </script>
@@ -2100,7 +2097,6 @@
                     var have_jdk_pre7u14 = new String(project.getProperty("have-jdk-pre7u14"));
                     var fx_in_swing_app = new String(project.getProperty("fx-in-swing-app"));
                     var debug_in_browser = new String(project.getProperty("project.state.debugging.in.browser"));
-
                     // get jars with lazy download mode property set
                     function getLazyJars() {
                         var jars = new Array();
@@ -2190,7 +2186,6 @@
                             }
                         }
                     }
-
                     // fx:application
                     var app = deploy.createApplication();
                     app.setProject(project);
@@ -2393,7 +2388,6 @@
                     pref.setShortcut(isTrue(scut));
                     pref.setInstall(isTrue(instp));
                     pref.setMenu(isTrue(smenu));
-
                     // fx:template
                     var templ = new String(project.getProperty("javafx.run.htmltemplate"));
                     var templp = new String(project.getProperty("javafx.run.htmltemplate.processed"));
@@ -2403,7 +2397,6 @@
                         temp.setFile(new java.io.File(templ));
                         temp.setTofile(new java.io.File(templp));
                     }
-
                     // fx:platform
                     var plat = deploy.createPlatform();
                     plat.setProject(project);
@@ -2541,7 +2534,6 @@
                     var JFXPAR = "javafx.param";
                     var JFXPARN = "name";
                     var JFXPARV = "value";
-
                     var params = new java.lang.StringBuilder();
                     var args = new java.lang.StringBuilder();
                     var keys = project.getProperties().keys();
@@ -4006,3 +3998,5 @@
 
 
 </project>
+
+  

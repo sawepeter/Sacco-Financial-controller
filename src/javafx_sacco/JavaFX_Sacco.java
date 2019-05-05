@@ -22,8 +22,8 @@ public class JavaFX_Sacco extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("FXML_Login.fxml"));
         
         Scene scene = new Scene(root);
-        
         stage.setScene(scene);
+        stage.setTitle("Nakimo Login");
         stage.show();
     }
 
