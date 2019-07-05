@@ -1,2 +1,4 @@
 dist/
 build/
+screenshots/Thumbs.db
+*.db
